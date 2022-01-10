@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>All Question</title>
+</head>
+<body>
+    <h1>All Questions</h1>
+
+    <form action="">
+        <ol>
+            <% for(let j=0;j<questions.length;j++){ %>
+                <li>
+                    <%= questions[j].description %>
+                    <a href="/questions/<%= questions[j]._id %>">Details</a>
+                    <hr>
+                    <% for(let i=0; i<questions[j].alternatives.length;i++){ %>
+                        <p>
+                            <input type="radio" name="options<%= j %>" id="option<%= j %><%= i %>" value="<%= questions[j].alternatives[i].text %>">
+                            <label for="option<%= i %>"><%= questions[j].alternatives[i].text %></label>
+                        </p>
+                    <% } %> 
+                </li>
+            <% } %>
+        </ol>
+        <button type="submit">Submit Quiz</button>
+    </form>
+
+    <a href="/questions/new">Add a new question</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Details page</title>
+</head>
+<body>
+    <p>
+        This Question is Created by--<i><b><%= foundQuestion.creator %></b></i><br>
+    </p>
+
+    <p><b>Question:</b><%= foundQuestion.description %></p>
+    <section>
+        <b>Options:-</b>
+        <ul>
+            <% for(let k of foundQuestion.alternatives){ %>
+              <li><%= k.text %></li>
+            <% } %>
+        </ul>
+    </section>
+
+    <a href="/questions/<%= foundQuestion._id %>/edit">Edit this Question</a><br><br>
+
+    <a href="/questions">All Questions</a><br><br>
+
+    <form action="/questions/<%= foundQuestion._id %>?_method=DELETE" method="post">
+        <button type="submit">Delete this question</button>
+    </form>
+
+</body>
+</html>

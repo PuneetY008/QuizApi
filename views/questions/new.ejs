@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>New question</title>
+</head>
+<body>
+
+    <h2>Create a New question YA DODO!!!</h2>
+
+    <form action="/questions" method="post">
+        <label for="name">Your Name Here-::</label>
+        <input type="text" name="name" id="name">
+        <p>
+            <label for="ques">New Question-</label>
+            <input type="text" name="ques" id="ques">
+        </p> 
+        <p>
+            <label for="opt1">Option 1:</label>
+            <input type="text" name="opt1" id="opt1">
+        </p>
+        <p>
+            <label for="opt2">Option 2:</label>
+            <input type="text" name="opt2" id="opt2">
+        </p>
+        <p>
+            <label for="opt3">Option 3:</label>
+            <input type="text" name="opt3" id="opt3">
+        </p>
+        <p>
+            <label for="opt4">Option 4:</label>
+            <input type="text" name="opt4" id="opt4">
+        </p>
+
+        <p>Which is the correct option:
+            <input type="radio" name="correct" id="c_opt1" value="opt1">Option 1
+            <input type="radio" name="correct" id="c_opt2" value="opt2">Option 2
+            <input type="radio" name="correct" id="c_opt3" value="opt3">Option 3
+            <input type="radio" name="correct" id="c_opt4" value="opt4">Option 4
+        </p>
+
+        <button type="submit">Add Question</button>
+    </form>
+    
+    <br>
+    <a href="/questions">All Questions</a>
+</body>
+</html>

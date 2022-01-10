@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit question</title>
+</head>
+<body>
+
+    <h2>Edit this Question</h2>
+
+    <form action="/questions/<%= foundQuestion._id %>?_method=PUT" method="post">
+        <label for="name">Edit Name Here-::</label>
+        <input type="text" name="name" id="name" value="<%= foundQuestion.creator %>">
+        <p>
+            <label for="ques">Updated Question-</label>
+            <input type="text" name="ques" id="ques" value="<%= foundQuestion.description %>">
+        </p> 
+        <p>
+            <label for="opt1">Option 1:</label>
+            <input type="text" name="opt1" id="opt1" value="<%= foundQuestion.alternatives[0].text %>">
+        </p>
+        <p>
+            <label for="opt2">Option 2:</label>
+            <input type="text" name="opt2" id="opt2" value="<%= foundQuestion.alternatives[1].text %>">
+        </p>
+        <p>
+            <label for="opt3">Option 3:</label>
+            <input type="text" name="opt3" id="opt3" value="<%= foundQuestion.alternatives[2].text %>">
+        </p>
+        <p>
+            <label for="opt4">Option 4:</label>
+            <input type="text" name="opt4" id="opt4" value="<%= foundQuestion.alternatives[3].text %>">
+        </p>
+
+        <% for(let i=0;i<foundQuestion.alternatives.length;i++){ %>
+            <% if(foundQuestion.alternatives[i].isCorrect == true){ %>
+                <% c_id = i; %>
+                <% break; %>  
+            <% } %> 
+        <% } %>
+
+        <p>Which is the correct option:
+            <input type="radio" name="correct" id="c_opt1" value="opt1" <%= c_id==0?'checked':'' %>>Option 1
+            <input type="radio" name="correct" id="c_opt2" value="opt2" <%= c_id==1?'checked':'' %>>Option 2
+            <input type="radio" name="correct" id="c_opt3" value="opt3" <%= c_id==2?'checked':'' %>>Option 3
+            <input type="radio" name="correct" id="c_opt4" value="opt4" <%= c_id==3?'checked':'' %>>Option 4
+        </p>
+        
+        
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <br>
+    <a href="/questions/<%= foundQuestion._id %>">Don't want to Edit</a>
+    
+</body>
+</html>
